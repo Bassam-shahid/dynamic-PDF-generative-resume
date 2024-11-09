@@ -1,0 +1,146 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 10px;
+    background: black;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px black;
+    padding: 20px;
+}
+
+button {
+    text-align: center;
+    display: block;
+    width: 200px;
+    padding: 10px;
+    margin: 20px auto;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 18px;
+    background-color: rgb(9, 180, 248);
+    color: white;
+}
+
+button:hover {
+    color: bisque;
+}
+
+#downloadBtn {
+    background-color: rgb(50, 168, 82);
+    color: white;
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+}
+
+fieldset {
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: black;
+}
+
+legend {
+    font-weight: bold;
+}
+
+label {
+    color: #000000;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: calc(100% - 1px);
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid white;
+    border-radius: 4px;
+    box-sizing: border-box ;
+    background-color: #000000;
+    color: white;
+    z-index: 10;
+    position: relative;
+}
+
+.resumeOutput {
+    max-width: 650px; 
+    margin: 20px auto;
+    padding: 30px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+    z-index: 5;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+}
+
+
+.resumeOutput h2 {
+    color: #0044cc; 
+    font-weight: 700;
+    text-align: center; 
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+
+.profilepicture {
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(146, 62, 62, 0.4); 
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 4px solid #923e3e; 
+}
+
+
+
+#background::before, #background::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    animation: stars 100s linear infinite;
+    opacity: 0.7;
+}
+
+#background::after {
+    animation-direction: reverse;
+}
+
+@keyframes stars {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-1000px, 1000px); }
+}
+#downloadButton {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#downloadButton:hover {
+    background-color: #45a049;
+}
