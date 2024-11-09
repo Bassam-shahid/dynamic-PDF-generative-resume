@@ -1,7 +1,7 @@
 document.getElementById('form1')?.addEventListener('submit', function(event: Event) {
     event.preventDefault(); // Page reload hone se roknay ke liye
 
-    // Get references to form elements and cast them to their correct types
+    // Form elements ko get karte hain
     const profilePictureInput = document.getElementById('profilepicture') as HTMLInputElement;
     const nameElement = document.getElementById('name') as HTMLInputElement;
     const emailElement = document.getElementById('email') as HTMLInputElement;
@@ -10,7 +10,6 @@ document.getElementById('form1')?.addEventListener('submit', function(event: Eve
     const experienceElement = document.getElementById('experience') as HTMLTextAreaElement;
     const skillsElement = document.getElementById('skills') as HTMLTextAreaElement;
 
-    // Ensure all elements are found and are of the correct type
     if (
         profilePictureInput && nameElement && emailElement && phoneElement &&
         educationElement && experienceElement && skillsElement
@@ -24,32 +23,56 @@ document.getElementById('form1')?.addEventListener('submit', function(event: Eve
         const profilePictureFile = profilePictureInput.files?.[0];
         const profilePictureURL = profilePictureFile ? URL.createObjectURL(profilePictureFile) : '';
 
-        // Create resume output HTML
+        // Resume output HTML
         const resumeOutput = `
             <h2>Resume</h2>
             ${profilePictureURL ? `<img src="${profilePictureURL}" alt="Profile Picture" class="profilepicture">` : ''}
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Phone Number:</strong> ${phone}</p>
-
             <h3>Education</h3>
             <p>${education}</p>
-
             <h3>Work Experience</h3>
             <p>${experience}</p>
-
             <h3>Skills</h3>
             <p>${skills}</p>
         `;
 
-        // Get the element to output the resume
         const resumeOutputElement = document.getElementById('resumeOutput');
         if (resumeOutputElement) {
             resumeOutputElement.innerHTML = resumeOutput;
+            document.getElementById('downloadButton')!.style.display = 'block';
+            document.getElementById('editButton')!.style.display = 'block';
+            document.getElementById('shareButton')!.style.display = 'block';
         } else {
             console.error('The resume output element is missing');
         }
     } else {
         console.error('One or more form elements are missing');
     }
+});
+
+// Download PDF
+document.getElementById('downloadButton')?.addEventListener('click', () => {
+    const element = document.getElementById('resumeOutput');
+    if (element) {
+        html2pdf().from(element).save('Resume.pdf');
+    }
+});
+
+// Edit Resume
+document.getElementById('editButton')?.addEventListener('click', () => {
+    document.getElementById('form1')!.style.display = 'block';
+    document.getElementById('resumeOutput')!.innerHTML = '';
+    document.getElementById('downloadButton')!.style.display = 'none';
+    document.getElementById('editButton')!.style.display = 'none';
+    document.getElementById('shareButton')!.style.display = 'none';
+});
+
+// Shareable Link
+document.getElementById('shareButton')?.addEventListener('click', () => {
+    const shareableLink = window.location.href;
+    navigator.clipboard.writeText(shareableLink).then(() => {
+        alert("Link copied to clipboard!");
+    });
 });
