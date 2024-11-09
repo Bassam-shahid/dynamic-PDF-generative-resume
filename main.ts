@@ -1,7 +1,7 @@
 document.getElementById('form1')?.addEventListener('submit', function(event: Event) {
-    event.preventDefault(); // Page reload hone se roknay ke liye
+    event.preventDefault(); 
 
-    // Form elements ko get karte hain
+    
     const profilePictureInput = document.getElementById('profilepicture') as HTMLInputElement;
     const nameElement = document.getElementById('name') as HTMLInputElement;
     const emailElement = document.getElementById('email') as HTMLInputElement;
@@ -52,7 +52,7 @@ document.getElementById('form1')?.addEventListener('submit', function(event: Eve
     }
 });
 
-// Download PDF
+
 document.getElementById('downloadButton')?.addEventListener('click', () => {
     const element = document.getElementById('resumeOutput');
     if (element) {
@@ -60,7 +60,7 @@ document.getElementById('downloadButton')?.addEventListener('click', () => {
     }
 });
 
-// Edit Resume
+
 document.getElementById('editButton')?.addEventListener('click', () => {
     document.getElementById('form1')!.style.display = 'block';
     document.getElementById('resumeOutput')!.innerHTML = '';
@@ -69,7 +69,7 @@ document.getElementById('editButton')?.addEventListener('click', () => {
     document.getElementById('shareButton')!.style.display = 'none';
 });
 
-// Shareable Link
+
 document.getElementById('shareButton')?.addEventListener('click', () => {
     const shareableLink = window.location.href;
     navigator.clipboard.writeText(shareableLink).then(() => {
