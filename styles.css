@@ -1,3 +1,33 @@
+button {
+    text-align: center;
+    display: block;
+    width: 200px;
+    padding: 10px;
+    margin: 20px auto;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 18px;
+    background-color: rgb(9, 180, 248);
+    color: white;
+}
+
+button:hover {
+    color: bisque;
+}
+
+#editButton, #shareButton {
+    background-color: rgb(50, 168, 82);
+    color: white;
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+}
+
+#editButton:hover, #shareButton:hover {
+    background-color: #45a049;
+}
 body {
     font-family: 'Times New Roman', Times, serif;
     margin: 10px;
